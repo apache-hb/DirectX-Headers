@@ -32,7 +32,7 @@
 #ifdef __cpp_exceptions
 #define D3DX12_THROW(x) throw x
 #else
-#define D3DX12_THROW(x) assert(false && #x)
+#define D3DX12_THROW(x) do { ASSUME(false && #x); abort(); } while (0)
 #endif
 
 #define R D3DFCN_R
